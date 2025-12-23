@@ -10,14 +10,23 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build OK'
+                echo 'Compilation / Build terminé avec succès'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Tests OK'
+                echo 'Tests exécutés avec succès'
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline exécuté avec succès'
+        }
+        failure {
+            echo 'Erreur dans le pipeline'
         }
     }
 }
